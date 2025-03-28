@@ -1,0 +1,39 @@
+body {
+    text-align: center;
+    background-color: pink;
+    font-family: Arial, sans-serif;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+#valentine-img {
+    width: 300px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.3s;
+}
+
+#yes-btn {
+    background-color: green;
+    color: white;
+    border: none;
+}
+
+#no-btn {
+    background-color: red;
+    color: white;
+    border: none;
+}
