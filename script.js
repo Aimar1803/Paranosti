@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function () {
         emailjs.init("BJyM6bwIEbonieAdF");
 
         emailjs.send("service_joz8y0j", "template_lqmmasc", {
-            to_email: "abdiasgalla550@gmail.com",
+            to_email: "abdiasgalla500@gmail.com",
             message: "¡Dijo que sí!"
         }).then(response => {
             console.log("Correo enviado:", response);
