@@ -1,31 +1,67 @@
-const images = ["img/1.gif", "img/2.gif", "img/3.gif"]; // GIFs para el "No"
-const messages = [
-    "¿Por qué? ¿Ya no soy tan bueno?",
-    "Te prometo cambiar, ya no seré malo, ya nunca te incomodaré.",
-    "Porfiiiiiiiiiiiiis te 😢"
-]; // Mensajes para cada "No"
-const yesGif = "img/yes.gif"; // GIF especial para "Sí"
-const yesMessage = "¿De veritas? Gracias demasiadas. Verás que no te equivocaste al elegirme, lo juro. ¡Te amo mucho! ❤️";
+document.addEventListener("DOMContentLoaded", function () {
+    const yesButton = document.getElementById("yes-btn");
+    const noButton = document.getElementById("no-btn");
+    const messageText = document.getElementById("message-text");
+    const valentineImg = document.getElementById("valentine-img");
 
-let currentImage = 0;
-let currentMessage = 0;
+    let noSize = 16;
+    let yesSize = 16;
+    let clickCount = 0;
 
-let yesButton = document.getElementById("yes-btn");
-let noButton = document.getElementById("no-btn");
-let valentineImg = document.getElementById("valentine-img");
-let messageText = document.getElementById("message-text"); // Agregar en HTML
+    const messages = [
+        "¿pq?",
+        "Yo te amo porfi piensalo 2 veces",
+        "Porfiiiiiiiiiiiiis",
+        "¿De veritas? Gracias demasiadas. Verás que no te equivocaste al elegirme, lo juro. Te amo mucho ❤️"
+    ];
 
-noButton.addEventListener("click", () => {
-    currentImage = (currentImage + 1) % images.length;
-    currentMessage = (currentMessage + 1) % messages.length;
-    valentineImg.src = images[currentImage]; // Cambia el GIF
-    messageText.innerText = messages[currentMessage]; // Cambia el mensaje
+    const gifs = [
+        "img/no1.gif",
+        "img/no2.gif",
+        "img/no3.gif",
+        "img/si.gif"
+    ];
+
+    noButton.addEventListener("click", () => {
+        if (clickCount < messages.length - 1) {
+            messageText.innerText = messages[clickCount];
+            valentineImg.src = gifs[clickCount];
+            clickCount++;
+
+            if (noSize > 5) {
+                noSize -= 2;
+                noButton.style.fontSize = noSize + "px";
+            }
+
+            yesSize += 5;
+            yesButton.style.fontSize = yesSize + "px";
+        }
+    });
+
+    yesButton.addEventListener("click", () => {
+        messageText.innerText = messages[messages.length - 1];
+        valentineImg.src = gifs[gifs.length - 1];
+        yesButton.innerText = "¡Te amo! ❤️";
+        noButton.style.display = "none";
+
+        emailjs.init("TU_PUBLIC_KEY");
+
+        emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", {
+            to_email: "abdiasgalla503@gmail.com",
+            message: "¡Dijo que sí!"
+        }).then(response => {
+            console.log("Correo enviado:", response);
+        }).catch(error => {
+            console.error("Error enviando correo:", error);
+        });
+    });
 });
 
-yesButton.addEventListener("click", () => {
-    valentineImg.src = yesGif; // Cambia a la imagen especial
-    messageText.innerText = yesMessage; // Mensaje de "Sí"
-    yesButton.style.fontSize = "30px"; // Hace el botón más grande
-    yesButton.innerText = "¡Te amo! ❤️"; // Cambia el texto del botón
-    noButton.style.display = "none"; // Oculta el botón de "No"
-});
+function nextStep(step) {
+    document.querySelectorAll(".step").forEach(el => el.style.display = "none");
+    if (step === 5) {
+        document.getElementById("main-content").style.display = "block";
+    } else {
+        document.getElementById(`step-${step}`).style.display = "block";
+    }
+}

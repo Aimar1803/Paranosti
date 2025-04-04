@@ -5,14 +5,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>¿Quieres ser mi novia, Nostalgia?</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 </head>
 <body>
-    <div class="container">
-        <img id="valentine-img" src="img/inicial.gif" alt="Imagen principal">
-        
-        <!-- ✅ AQUÍ SE AGREGA EL MENSAJE QUE CAMBIARÁ -->
-        <p id="message-text">¿Quieres ser mi novia, Nostalgia? ❤️</p>
+    <audio id="background-music" autoplay loop>
+        <source src="musica.mp3" type="audio/mp3">
+        Tu navegador no soporta audio.
+    </audio>
 
+    <div id="step-1" class="step">
+        <img src="img/amor1.jpg" alt="Imagen 1">
+        <p>🌹 Desde el día en que te conocí, mi mundo cambió.</p>
+        <button onclick="nextStep(2)">Siguiente</button>
+    </div>
+
+    <div id="step-2" class="step" style="display:none;">
+        <img src="img/amor2.jpg" alt="Imagen 2">
+        <p>💖 Eres la persona más especial para mí, mi inspiración diaria.</p>
+        <button onclick="nextStep(3)">Siguiente</button>
+    </div>
+
+    <div id="step-3" class="step" style="display:none;">
+        <img src="img/amor3.jpg" alt="Imagen 3">
+        <p>✨ No hay nadie más con quien quisiera estar.</p>
+        <button onclick="nextStep(4)">Siguiente</button>
+    </div>
+
+    <div id="step-4" class="step" style="display:none;">
+        <img src="img/poema.png" alt="Poema">
+        <p>🌷 "Nostalgia, no sé cómo decirlo bien,
+            pero desde que te fuiste, nada me sale igual.
+            La música suena triste, los días no tienen fin,
+            y hasta mi cuarto vacío me grita tu nombre. 
+            Extraño tus mensajes de buenos días,
+            tu risa cuando decía algo sin gracia,
+            tus enojos, tus "ya no te hablo",
+            y luego tu sonrisa que lo borraba todo. 
+            No quiero fingir que estoy bien,
+            porque la verdad es que te necesito.
+            Eras mi luz, mi desastre favorito,
+            y sin ti hasta el sol se ve gris.
+            Te amo, y no es cursilería,
+            es que mi corazón no sabe mentir."</p>
+        <button onclick="nextStep(5)">Siguiente</button>
+    </div>
+
+    <div id="main-content" style="display:none;">
+        <p id="message-text">¿Quieres ser mi novia, Nostalgia? ❤️</p>
+        <img id="valentine-img" src="img/inicial.gif" alt="Imagen principal">
         <div class="buttons">
             <button id="yes-btn">Sí</button>
             <button id="no-btn">No</button>
