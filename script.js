@@ -46,7 +46,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         emailjs.init("BJyM6bwIEbonieAdF");
 
-        emailjs.send("service_joz8y0j", "template_jqrvczk", {
+        emailjs.send("service_joz8y0j", "template_lqmmasc", {
             to_email: "abdiasgalla550@gmail.com",
             message: "¡Dijo que sí!"
         }).then(response => {
