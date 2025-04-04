@@ -44,10 +44,10 @@ document.addEventListener("DOMContentLoaded", function () {
         yesButton.innerText = "¡Te amo! ❤️";
         noButton.style.display = "none";
 
-        emailjs.init("TU_PUBLIC_KEY");
+        emailjs.init("BJyM6bwIEbonieAdF");
 
-        emailjs.send("TU_SERVICE_ID", "TU_TEMPLATE_ID", {
-            to_email: "abdiasgalla503@gmail.com",
+        emailjs.send("service_joz8y0j", "template_jqrvczk", {
+            to_email: "abdiasgalla550@gmail.com",
             message: "¡Dijo que sí!"
         }).then(response => {
             console.log("Correo enviado:", response);
